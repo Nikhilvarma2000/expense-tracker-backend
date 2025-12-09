@@ -30,4 +30,9 @@ public class Expense {
 
     @Column(name = "expense_date", nullable = false)
     private LocalDate expenseDate;
+
+    // ✅ LINK TO USER
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "user_id", nullable = false)
+    private User user;
 }

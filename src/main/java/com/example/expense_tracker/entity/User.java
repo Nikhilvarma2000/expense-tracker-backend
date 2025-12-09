@@ -28,9 +28,8 @@ public class User {
     private String password;
 
     @Column(nullable = false)
-    private String role; // USER, ADMIN (future-ready)
+    private String role;
 
-    // ✅ Ensure email is always stored lowercase
     @PrePersist
     @PreUpdate
     private void normalizeEmail() {

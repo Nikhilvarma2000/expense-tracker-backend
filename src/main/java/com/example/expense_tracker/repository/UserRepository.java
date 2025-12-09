@@ -7,13 +7,9 @@ import java.util.Optional;
 
 public interface UserRepository extends JpaRepository<User, Long> {
 
-    /**
-     * Fetch user by email (case-insensitive) – used for login & JWT auth
-     */
+    // ✅ Used for login & JWT authentication
     Optional<User> findByEmailIgnoreCase(String email);
 
-    /**
-     * Check if email already exists (case-insensitive) – used during register
-     */
+    // ✅ Used during registration
     boolean existsByEmailIgnoreCase(String email);
 }
