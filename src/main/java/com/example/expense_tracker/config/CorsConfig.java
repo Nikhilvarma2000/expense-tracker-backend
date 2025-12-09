@@ -16,19 +16,26 @@ public class CorsConfig {
 
         CorsConfiguration config = new CorsConfiguration();
 
-        // ✅ Allow frontend origin
-        config.setAllowedOrigins(List.of("http://localhost:5173"));
+        // ✅ Allow frontend origins
+        config.setAllowedOrigins(List.of(
+                "http://localhost:5173",
+                "https://ornate-jalebi-986998.netlify.app"
+        ));
 
         // ✅ Allowed HTTP methods
-        config.setAllowedMethods(List.of("GET", "POST", "PUT", "DELETE", "OPTIONS"));
+        config.setAllowedMethods(List.of(
+                "GET", "POST", "PUT", "DELETE", "OPTIONS"
+        ));
 
-        // ✅ Allow headers
+        // ✅ Allow headers (JWT, JSON)
         config.setAllowedHeaders(List.of("*"));
 
         // ✅ Allow Authorization header (JWT)
         config.setAllowCredentials(true);
 
-        UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
+        UrlBasedCorsConfigurationSource source =
+                new UrlBasedCorsConfigurationSource();
+
         source.registerCorsConfiguration("/**", config);
 
         return source;
